@@ -4,6 +4,12 @@
 #include "player.h"
 #include "car.h"
 
+namespace
+{
+	// 地面の高さ
+	constexpr int kFieldY = Game::kScreenHeight - 64;
+}
+
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -24,11 +30,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	Player player;
 	player.setGraphic(hPlayer);
-	player.setup(Game::kScreenHeight - 64);
+	player.setup(kFieldY);
 
 	Car car;
 	car.setGraphic(hCar);
-	car.setup(Game::kScreenHeight - 64);
+	car.setup(kFieldY);
 
 	// ダブルバッファモード
 	SetDrawScreen(DX_SCREEN_BACK);
@@ -48,7 +54,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 
 		// 地面の描画
-		DrawLine(0, Game::kScreenHeight - 64, Game::kScreenWidth, Game::kScreenHeight - 64, GetColor(255, 255, 255));
+		DrawLine(0, kFieldY, Game::kScreenWidth, kFieldY, GetColor(255, 255, 255));
 		player.draw();
 		car.draw();
 
