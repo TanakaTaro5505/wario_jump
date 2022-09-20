@@ -6,6 +6,7 @@ Player::Player()
 {
 	m_handle = -1;
 	m_fieldY = 0.0f;
+	m_isDead = false;
 }
 
 void Player::setGraphic(int handle)
@@ -32,6 +33,7 @@ void Player::update()
 
 void Player::draw()
 {
+	if (m_isDead)	return;
 	DrawGraphF(m_pos.x, m_pos.y, m_handle, true);
 }
 

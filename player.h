@@ -29,6 +29,9 @@ public:
 	Vec2 getGraphSize() const { return m_graphSize; }
 	Vec2 getColSize() const { return m_colSize; }
 
+	// 死亡設定
+	void setDead(bool isDead) { m_isDead = isDead; }
+
 private:
 	// グラフィックハンドル
 	int m_handle;
@@ -43,4 +46,6 @@ private:
 	Vec2 m_vec;
 	// 地面の高さ
 	float m_fieldY;
+
+	bool m_isDead;
 };

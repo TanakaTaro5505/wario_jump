@@ -42,6 +42,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		player.update();
 		car.update();
 
+		if (player.isCol(car))
+		{
+			player.setDead(true);
+		}
+
 		// ’n–Ê‚Ì•`‰æ
 		DrawLine(0, Game::kScreenHeight - 64, Game::kScreenWidth, Game::kScreenHeight - 64, GetColor(255, 255, 255));
 		player.draw();
